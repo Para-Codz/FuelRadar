@@ -21,11 +21,10 @@
 body{
     background: #0f172a;
     color: #fff;
-    height:100vh;
+    min-height: 100vh;
     display:flex;
     align-items:center;
     justify-content:center;
-    overflow:hidden;
 }
 
 /* Back Button */
@@ -149,6 +148,67 @@ button:hover{
         transform:translateY(100vh) rotate(720deg);
         opacity:0;
     }
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+@media (max-width: 768px){
+
+  body{
+    height: auto;
+    overflow: auto;
+    padding: 40px 15px;
+  }
+
+  .container{
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  h1{
+    font-size: 28px;
+  }
+
+  p{
+    font-size: 14px;
+  }
+
+  /* Countdown wraps nicely */
+  .countdown{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .box{
+    flex: 1 1 30%;
+    padding: 12px;
+  }
+
+  .box h2{
+    font-size: 20px;
+  }
+
+  /* Input + button stack */
+  .input-group{
+    flex-direction: column;
+    width: 100%;
+  }
+
+  input,
+  button{
+    width: 100%;
+  }
+
+  button{
+    padding: 14px;
+  }
+
+  /* Back button smaller */
+  .back-btn{
+    top: 10px;
+    left: 10px;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
 }
 </style>
 </head>
