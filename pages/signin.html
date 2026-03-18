@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FuelRadar Sign Up</title>
+
+<link rel="icon" type="image/png" href="../images/favicon.png">
+
+
+
+<link rel="stylesheet" href="../styles/signin.css">
+
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+/>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- LEFT IMAGE -->
+<div class="left">
+
+<div class="overlay">
+<h1>FuelRadar</h1>
+<p>Join drivers sharing real-time fuel prices</p>
+</div>
+
+</div>
+
+
+<!-- RIGHT FORM -->
+<div class="right">
+
+<a href="../index.html" class="back-home">
+<i class="ph ph-arrow-left"></i> Back to Home
+</a>
+
+<div class="signup-box">
+
+<h2>Create Account</h2>
+<p class="subtitle">Start saving money on fuel today</p>
+
+<form>
+
+<div class="input">
+<i class="ph ph-user"></i>
+<input type="text" placeholder="Full Name" required>
+</div>
+
+<div class="input">
+<i class="ph ph-envelope"></i>
+<input type="email" placeholder="Email Address" required>
+</div>
+
+<div class="input password-field">
+<i class="ph ph-lock"></i>
+<input type="password" id="password" placeholder="Password" required>
+<i class="ph ph-eye toggle-eye" data-target="password"></i>
+</div>
+
+<div class="input password-field">
+<i class="ph ph-lock-key"></i>
+<input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+<i class="ph ph-eye toggle-eye" data-target="confirmPassword"></i>
+</div>
+
+<p id="password-error"></p>
+
+<button class="signup-btn">Create Account</button>
+
+</form>
+
+<p class="login-link">
+Already have an account?
+<a href="login.html">Login</a>
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="../script/signin.js"></script>
+
+</body>
+</html>
