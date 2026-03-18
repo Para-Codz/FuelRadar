@@ -32,7 +32,6 @@ z-index:1000;
 background:linear-gradient(135deg,#2563eb,#3b82f6);
 color:white;
 padding: 20px 20px 25px 20px;
-/* padding:11px 26px; */
 border-radius:30px;
 font-size:15px;
 font-weight:600;
@@ -42,6 +41,8 @@ transition:all .25s ease;
 display:inline-block;
 
 }
+
+
 
 .nav-cta:hover{
 transform:translateY(-2px) scale(1.1);
@@ -618,6 +619,16 @@ animation:floatOverlay 8s ease-in-out infinite alternate;
     color: #1d4ed8;
     font-size: 18px;
   }
+
+  .nav-links .nav-cta {
+  width: 100%;
+  text-align: center;
+  display: block;
+  padding: 14px;
+  border-radius: 10px;
+}
+
+
 }
 
 /* Hamburger animation when active */
@@ -1076,4 +1087,10 @@ background:#25D366;
 .social:hover{
 transform:translateY(-4px);
 box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.nav-links .nav-cta {
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
 }
