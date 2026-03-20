@@ -1,398 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FuelRadar</title>
-
-<link rel="icon" type="image/png" href="./images/favicon.png">
-
-
-<link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
-    />
-
-<link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
-    />
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuelRadar - Know Fuel Prices Before You Drive</title>
+    <meta name="description" content="Drivers near you share real-time fuel prices so you can avoid overpriced stations and long queues.">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-
     <div id="scroll-bar"></div>
 
-<!-- NAVBAR -->
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo-cnt">
+                    <i class="fas fa-droplet"></i>
+                    <div class="logo">Fuel<span>Radar</span></div>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#how-it-works" class="nav-link">How it Works</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                    <a href="#testimonials" class="nav-link">Testimonials</a>
+                    <a href="#newsletter" class="nav-link">Newsletter</a>
+                    <button class="btn btn-primary btn-start" >Get Started</button>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-<nav class="navbar">
-  <div class="logo">FuelRadar</div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Know Fuel Prices Before You Drive</h1>
+                    <p class="hero-subtitle">Drivers near you share real-time fuel prices so you can avoid overpriced stations and long queues.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-large btn-check">
+                            <i class="fas fa-search"></i>
+                            Check Prices
+                        </button>
+                        <button class="btn btn-outline btn-large btn-drop">
+                            <i class="fas fa-plus-circle"></i>
+                            Drop Update
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1572246612281-38567e78054f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwZHJpdmVyJTIwc21hcnRwaG9uZSUyMGNhcnxlbnwxfHx8fDE3NzM5NTMxNTZ8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Driver using FuelRadar">
+                    <div class="hero-badge">
+                        <i class="fas fa-gas-pump"></i>
+                        <div>
+                            <p class="badge-label">Real-time Prices</p>
+                            <p class="badge-value">₦640 - ₦680/L</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Hamburger Button -->
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How FuelRadar Works</h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="step-title">Check Prices</h3>
+                    <p class="step-description">Open the price feed and see fuel prices shared by drivers around your area.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3 class="step-title">Share Updates</h3>
+                    <p class="step-description">At a station? Drop a quick update so other drivers know the current price.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="step-title">Earn Tips</h3>
+                    <p class="step-description">Helpful updates can earn small tips from the community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <ul class="nav-links" id="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#how">How it Works</a></li>
-    <li><a href="#faq">Faq</a></li>
-    <li><a href="#test">Testimonials</a></li>
-    <li><a href="#news">NewsLetter</a></li>
-    <li>
-    <a href="./comingsoon.html" class="nav-cta">Get Started</a>
-  </li>
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="problem-content">
+                <div class="problem-image">
+                    <img src="https://images.unsplash.com/photo-1685266326187-74cdcd9241fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdWVsJTIwc3RhdGlvbiUyMHB1bXAlMjBuaWdlcmlhfGVufDF8fHx8MTc3Mzk1MzE1N3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="Fuel Station">
+                </div>
+                <div class="problem-text">
+                    <h2 class="problem-title">Fuel Prices Change Fast</h2>
+                    <p class="problem-description">Drivers waste time and money visiting stations without knowing the actual price. FuelRadar solves this by letting drivers share real-time fuel prices with each other.</p>
+                    
+                    <!-- Stats Counter -->
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <p class="stat-number" data-target="12547">0</p>
+                            <p class="stat-label">Drivers Checking Prices</p>
+                        </div>
+                        <div class="stat-item">
+                            <p class="stat-number" data-target="1834">0</p>
+                            <p class="stat-label">Stations Updated</p>
+                        </div>
+                        <div class="stat-item">
+                            <p class="stat-number" data-target="45892">0</p>
+                            <p class="stat-label">Community Updates</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  </ul>
-  
-  
-</nav>
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Drivers Use FuelRadar</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon orange">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Real-Time Updates</h3>
+                    <p class="feature-description">Drivers report fuel prices instantly from stations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon green">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3 class="feature-title">Save Money</h3>
+                    <p class="feature-description">Find the cheapest fuel station near you.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon blue">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Community Powered</h3>
+                    <p class="feature-description">Thousands of drivers helping each other daily.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon purple">
+                        <i class="fas fa-hand-holding-dollar"></i>
+                    </div>
+                    <h3 class="feature-title">Earn Tips</h3>
+                    <p class="feature-description">Helpful updates can earn small tips from other users.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Find quick answers to common questions about FuelRadar, fuel prices, and community updates.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How does FuelRadar get fuel prices?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>FuelRadar gets fuel prices directly from drivers like you! When someone visits a fuel station, they can quickly share the current price on the app. This creates a real-time, community-powered database of fuel prices across your area.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I earn tips for sharing updates?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! When you share helpful price updates, other drivers can send you small tips as a thank you. The more accurate and timely your updates, the more tips you can earn. It's our way of rewarding community members who help others save money.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is FuelRadar available in my city?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>FuelRadar is currently available in major cities across Nigeria, including Lagos, Abuja, Port Harcourt, Ibadan, and Kano. We're constantly expanding to new cities based on user demand. If your city isn't listed yet, sign up for our newsletter to be notified when we launch in your area!</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How accurate are the fuel prices?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our prices are very accurate because they come directly from drivers at the stations. Each update is timestamped, so you can see how recent the information is. We also have a community rating system where drivers can verify prices, ensuring high accuracy.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I edit or delete my updates?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, you can edit or delete your price updates within 24 hours of posting. Simply go to your profile, find the update in your activity history, and choose to edit or remove it. This helps maintain accuracy if you made a mistake.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="testimonials-section" id="testimonials">
+    <h2 class="section-title">What Drivers Say</h2>
 
-<!-- HERO -->
+    <div class="testimonial-slider">
+        <div class="testimonial-track">
 
-<section class="hero reveal" id="home">
+            <!-- 1 -->
+            <div class="testimonial">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"FuelRadar saved me ₦1,200 just last week. Real-time updates are a game-changer!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div>
+                            <b>Jane</b><br>
+                            <small>Lagos Driver</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<div class="hero-content">
+            <!-- 2 -->
+            <div class="testimonial">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Finally, I can avoid overpriced stations. The app is super easy to use."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">E</div>
+                        <div>
+                            <b>Emeka</b><br>
+                            <small>Abuja Driver</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<h1>Know Fuel Prices Before You Drive</h1>
+            <!-- 3 -->
+            <div class="testimonial">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Sharing updates and helping others earns small tips. Love this community!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">C</div>
+                        <div>
+                            <b>Chinyere</b><br>
+                            <small>Port Harcourt Driver</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<p>
-Drivers near you share real-time fuel prices so you can avoid overpriced stations and long queues.
-</p>
+            <!-- 4 -->
+            <div class="testimonial">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"I now check FuelRadar before driving anywhere."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">D</div>
+                        <div>
+                            <b>Daniel</b><br>
+                            <small>Ibadan Driver</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<div class="hero-buttons">
+            <!-- 5 -->
+            <div class="testimonial">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"FuelRadar helped me find petrol at ₦640 when others sold ₦680."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">T</div>
+                        <div>
+                            <b>Tunde</b><br>
+                            <small>Lagos Driver</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<button class="primary">Check Prices</button>
-<button class="secondary">Drop Update</button>
+        </div>
 
-</div>
-
-</div>
-
-
-<div class="hero-image">
-
-<img src="./images/hero-img.png" alt="fuel station" width="400px" height="400px">
-
-</div>
-
-</section>
-
-
-
-<!-- HOW IT WORKS -->
-
-<section class="how reveal" id="how">
-
-<h2>How FuelRadar Works</h2>
-
-<div class="steps">
-
-<div class="step">
-
-<h3>Check Prices</h3>
-
-<p>
-Open the price feed and see fuel prices shared by drivers around your area.
-</p>
-
-</div>
-
-
-<div class="step">
-
-<h3>Share Updates</h3>
-
-<p>
-At a station? Drop a quick update so other drivers know the current price.
-</p>
-
-</div>
-
-
-<div class="step">
-
-<h3>Earn Tips</h3>
-
-<p>
-Helpful updates can earn small tips from the community.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="problem reveal">
-
-<h2>Fuel Prices Change Fast</h2>
-
-<p class="problem-text">
-Drivers waste time and money visiting stations without knowing the actual price.
-FuelRadar solves this by letting drivers share real-time fuel prices with each other.
-</p>
-
-<div class="problem-stats">
-
-<div class="stat">
-<h3 class="counter" data-target="10000">0</h3>
-<p>Drivers Checking Prices</p>
-</div>
-
-<div class="stat">
-<h3 class="counter" data-target="500">0</h3>
-<p>Stations Updated</p>
-</div>
-
-<div class="stat">
-<h3 class="counter" data-target="2000">0</h3>
-<p>Community Updates</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="features reveal">
-
-<h2>Why Drivers Use FuelRadar</h2>
-
-<div class="feature-grid">
-
-<div class="feature">
-<h3>Real-Time Updates</h3>
-<p>Drivers report fuel prices instantly from stations.</p>
-</div>
-
-<div class="feature">
-<h3>Save Money</h3>
-<p>Find the cheapest fuel station near you.</p>
-</div>
-
-<div class="feature">
-<h3>Community Powered</h3>
-<p>Thousands of drivers helping each other daily.</p>
-</div>
-
-<div class="feature">
-<h3>Earn Tips</h3>
-<p>Helpful updates can earn small tips from other users.</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="faq reveal" id="faq">
-  <h1 class="faq-title">Frequently Asked Questions</h1>
-  <p class="faq-subtitle animate delay-2">
-    Find quick answers to common questions about FuelRadar, fuel prices, and community updates.
-  </p>
-
-  <div class="faq-container">
-
-    <div class="faq-item animate delay-2">
-      <div class="faq-question">How does FuelRadar get fuel prices?</div>
-      <div class="faq-answer">
-        <p>FuelRadar relies on drivers like you to share real-time fuel prices at stations. The community updates the data instantly.</p>
-        <p>All updates are timestamped, so you always see the most recent prices. You can also filter by fuel type and city.</p>
-      </div>
+        <div class="testimonial-dots"></div>
     </div>
-
-    <div class="faq-item animate delay-2">
-      <div class="faq-question">Can I earn tips for sharing updates?</div>
-      <div class="faq-answer">
-        <p>Yes! Helpful updates can earn small tips from the community as a way to appreciate your contribution.</p>
-        <p>Tipping is currently a simple "thank you" system, but real monetary tips are coming soon.</p>
-      </div>
-    </div>
-
-    <div class="faq-item animate delay-2">
-      <div class="faq-question">Is FuelRadar available in my city?</div>
-      <div class="faq-answer">
-        <p>Coverage is growing. You can check your city in the app or website. Your updates help expand coverage faster!</p>
-      </div>
-    </div>
-
-    <div class="faq-item animate delay-2">
-      <div class="faq-question">How accurate are the fuel prices?</div>
-      <div class="faq-answer">
-        <p>Multiple drivers reporting similar prices increases reliability. Each update shows the time and contributor for transparency.</p>
-      </div>
-    </div>
-
-    <div class="faq-item animate delay-2">
-      <div class="faq-question">Can I edit or delete my updates?</div>
-      <div class="faq-answer">
-        <p>Currently, updates cannot be edited or deleted to maintain transparency. Only new updates can be added.</p>
-      </div>
-    </div>
-
-  </div>
 </section>
 
-<!-- ================== TESTIMONIALS ================== -->
-<section class="testimonials reveal" id="test">
 
-<h2>What Drivers Say</h2>
+    <!-- Mobile App Section -->
+    <section class="app-section">
+        <div class="container">
+            <div class="app-content">
+                <div class="app-image">
+                    <img src="https://images.unsplash.com/photo-1609921133942-9e485ac26bc8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBwaG9uZSUyMGhhbmR8ZW58MXx8fHwxNzczOTUzMTU3fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="FuelRadar Mobile App">
+                </div>
+                <div class="app-text">
+                    <h2 class="app-title">FuelRadar on Your Phone</h2>
+                    <p class="app-description">Check prices & share updates directly from your mobile device.</p>
+                    <div class="app-buttons">
+                        <a href="#" class="app-download-btn">
+                            <i class="fab fa-google-play"></i>
+                            <div>
+                                <span class="download-label">Download on</span>
+                                <span class="download-store">Android</span>
+                            </div>
+                        </a>
+                        <a href="#" class="app-download-btn">
+                            <i class="fab fa-apple"></i>
+                            <div>
+                                <span class="download-label">Download on</span>
+                                <span class="download-store">iOS</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="testimonial-wrapper">
+    <!-- Newsletter Section -->
+    <section class="newsletter-section" id="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">Stay Updated</h2>
+                <p class="newsletter-description">Get alerts when cheaper fuel appears near you.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-<div class="testimonial-track">
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-cnt">
+                        <i class="fas fa-droplet"></i>
+                        <div class="logo">Fuel<span>Radar</span></div>
+                    </div>
+                    <p class="footer-tagline">Real-time fuel prices powered by drivers.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#privacy">Privacy</a>
+                    <a href="#terms">Terms</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 FuelRadar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-<div class="testimonial">
-    <div class="quote">“</div>
-<p>"FuelRadar saved me ₦1,200 just last week. Real-time updates are a game-changer!"</p>
-<span class="person">
-<img src="./images/person.png"> Jane
-<div class="stars" style="color: gold;">★★★★★</div>
-</span>
-</div>
-
-<div class="testimonial">
-    <div class="quote">“</div>
-<p>"Finally, I can avoid overpriced stations. The app is super easy to use."</p>
-<span class="person">
-<img src="./images/person.png"> Emeka
-<div class="stars" style="color: gold;">★★★★</div>
-</span>
-</div>
-
-<div class="testimonial">
-    <div class="quote">“</div>
-<p>"Sharing updates and helping others earns small tips. Love this community!"</p>
-<span class="person">
-<img src="./images/person.png"> Chinyere
-<div class="stars" style="color: gold;">★★★★</div>
-</span>
-</div>
-
-<div class="testimonial">
-    <div class="quote">“</div>
-<p>"I now check FuelRadar before driving anywhere."</p>
-<span class="person">
-<img src="./images/person.png"> Daniel
-<div class="stars" style="color: gold;">★★★</div>
-</span>
-</div>
-
-
-
-
-
-<div class="testimonial">
-<p>"FuelRadar helped me find petrol at ₦640 when other stations were selling ₦680. I saved money and time."</p>
-<span class="person">
-<img src="./images/person.png"> Tunde A.
-<div class="stars" style="color: gold;">★★★★★</div>
-</span>
-</div>
-
-<div class="testimonial">
-<p>"Before FuelRadar I used to drive around wasting fuel looking for cheaper stations. Now I check prices first."</p>
-<span class="person">
-<img src="./images/person.png"> Amaka N.
-<div class="stars" style="color: gold;">★★★★</div>
-</span>
-</div>
-
-</div>
-
-</div>
-
-<!-- dots navigation -->
-<div class="testimonial-dots"></div>
-
-</section>
-
-<!-- ================== APP DOWNLOAD / MOBILE CTA ================== -->
-<section class="app-cta reveal">
-  <h2>FuelRadar on Your Phone</h2>
-  <p>Check prices & share updates directly from your mobile device.</p>
-  <div class="app-buttons">
-    <button class="primary"><i class="ph ph-google-play-logo app-icon"></i>Download on Android</button>
-    <button class="secondary dark"><i class="ph ph-apple-logo app-icon"></i> Download on iOS</button>
-  </div>
-</section>
-
-<!-- ================== NEWSLETTER ================== -->
-<section class="newsletter">
-
-<h2>Stay Updated</h2>
-<p>Get alerts when cheaper fuel appears near you.</p>
-
-<form id="newsletter-form">
-
-<input type="email" name="email" placeholder="Enter your email" required>
-
-<button type="submit">Subscribe</button>
-
-</form>
-
-<p id="success-message"></p>
-
-</section>
-
-<footer class="footer">
-
-<div class="footer-content">
-
-<div class="footer-logo">
-<h3>FuelRadar</h3>
-<p>Real-time fuel prices powered by drivers.</p>
-
-<div class="social-icons">
-
-<a href="#" class="social twitter">
-<i class="ph-fill ph-twitter-logo"></i>
-</a>
-
-<a href="#" class="social facebook">
-<i class="ph-fill ph-facebook-logo"></i>
-</a>
-
-<a href="#" class="social youtube">
-<i class="ph-fill ph-youtube-logo"></i>
-</a>
-
-<a href="#" class="social instagram">
-<i class="ph-fill ph-instagram-logo"></i>
-</a>
-
-<a href="#" class="social whatsapp">
-<i class="ph-fill ph-whatsapp-logo"></i>
-</a>
-
-</div>
-
-</div>
-
-<div class="footer-links">
-<a href="#">About</a>
-<a href="#">Contact</a>
-<a href="#">Privacy</a>
-<a href="#">Terms</a>
-</div>
-
-</div>
-
-<p class="copyright">© 2026 FuelRadar</p>
-
-</footer>
-
-
-
-
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
