@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuelRadar Sign Up</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- LEFT IMAGE -->
+        <div class="left">
+            <div class="overlay">
+                <h1>FuelRadar</h1>
+                <p>Join drivers sharing real-time fuel prices</p>
+            </div>
+        </div>
+
+        <!-- RIGHT FORM -->
+        <div class="right">
+            <a href="index.html" class="back-home">
+                <i class="ph ph-arrow-left"></i> Back to Home
+            </a>
+
+            <div class="signup-box">
+                <h2>Create Account</h2>
+                <p class="subtitle">Start saving money on fuel today</p>
+
+                <form id="signupForm">
+                    <div class="input">
+                        <i class="ph ph-user"></i>
+                        <input type="text" id="fullName" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="input">
+                        <i class="ph ph-envelope"></i>
+                        <input type="email" id="email" placeholder="Email Address" required>
+                    </div>
+
+                    <!-- <div class="input">
+                        <i class="ph ph-phone"></i>
+                        <input type="tel" id="phone" placeholder="Phone Number (Optional)">
+                    </div> -->
+
+                    <div class="input password-field">
+                        <i class="ph ph-lock"></i>
+                        <input type="password" id="password" placeholder="Password" required>
+                        <i class="ph ph-eye toggle-eye" data-target="password"></i>
+                    </div>
+
+                    <div class="password-strength" id="passwordStrength">
+                        <div class="strength-bar">
+                            <div class="strength-fill"></div>
+                        </div>
+                        <p class="strength-text"></p>
+                    </div>
+
+                    <div class="input password-field">
+                        <i class="ph ph-lock-key"></i>
+                        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                        <i class="ph ph-eye toggle-eye" data-target="confirmPassword"></i>
+                    </div>
+
+                    <p id="password-error"></p>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="termsCheckbox" required>
+                        <span>I agree to the <a href="#terms">Terms & Conditions</a> and <a href="#privacy">Privacy Policy</a></span>
+                    </label>
+
+                    <button type="submit" class="signup-btn">
+    <span class="btn-text">Create Account</span>
+    <span class="loader hidden"></span>
+</button>
+
+<!-- FULL PAGE LOADER -->
+<div id="pageLoader" class="page-loader">
+    <div class="spinner-ring"></div>
+    <img src="./images/oil.png" class="loader-logo" alt="FuelRadar Logo">
+</div>
+                </form>
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+                <div class="social-login">
+                    <button id="googleSignIn" class="google-btn social-btn google">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M19.8 10.2273C19.8 9.51819 19.7364 8.83637 19.6182 8.18182H10V12.05H15.4818C15.2273 13.3 14.4727 14.3591 13.3545 15.0682V17.5773H16.7182C18.7091 15.7364 19.8 13.2273 19.8 10.2273Z" fill="#4285F4"/>
+                            <path d="M10 20C12.7 20 14.9636 19.1045 16.7182 17.5773L13.3545 15.0682C12.4 15.6682 11.1909 16.0227 10 16.0227C7.39545 16.0227 5.19091 14.1636 4.35909 11.7409H0.890909V14.3318C2.63636 17.7955 6.09091 20 10 20Z" fill="#34A853"/>
+                            <path d="M4.35909 11.7409C4.14091 11.1409 4.01818 10.5 4.01818 9.84091C4.01818 9.18182 4.14091 8.54091 4.35909 7.94091V5.35H0.890909C0.218182 6.69091 -0.154545 8.21818 -0.154545 9.84091C-0.154545 11.4636 0.218182 12.9909 0.890909 14.3318L4.35909 11.7409Z" fill="#FBBC05"/>
+                            <path d="M10 3.65909C11.3182 3.65909 12.5 4.13182 13.4091 5.00455L16.3864 2.02727C14.9591 0.704545 12.6955 -0.154545 10 -0.154545C6.09091 -0.154545 2.63636 2.05 0.890909 5.35L4.35909 7.94091C5.19091 5.51818 7.39545 3.65909 10 3.65909Z" fill="#EA4335"/>
+                        </svg>
+                        🔵 Sign up with Google
+                    </button>
+    </div>
+
+                <p class="login-link">
+                    Already have an account?
+                    <a href="login.html">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+// ================= FIREBASE CONFIG =================
+const firebaseConfig = {
+  apiKey: "AIzaSyDnB4QJfhwCXpxW3OVbuZm-eDZ12kRj8LY",
+  authDomain: "fuelradar-71a58.firebaseapp.com",
+  projectId: "fuelradar-71a58",
+  storageBucket: "fuelradar-71a58.firebasestorage.app",
+  messagingSenderId: "916720705981",
+  appId: "1:916720705981:web:5d3f8b9064ebc6c13e72d4"
+};
+
+// ================= INIT =================
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+// ================= GOOGLE LOGIN =================
+const googleBtn = document.getElementById("googleSignIn");
+const pageLoader = document.getElementById("pageLoader");
+
+if (googleBtn) {
+  googleBtn.addEventListener("click", async () => {
+
+    // ✅ SHOW LOADER
+    pageLoader.classList.add("active");
+    googleBtn.disabled = true;
+
+    try {
+      const result = await signInWithPopup(auth, provider);
+
+      const user = result.user;
+
+      const userData = {
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL
+      };
+
+      // SAVE USER
+      localStorage.setItem("currentUser", JSON.stringify(userData));
+      localStorage.setItem("loggedIn", "true");
+
+      // OPTIONAL: small delay for smooth UX
+      setTimeout(() => {
+        window.location.href = "dashboard.html";
+      }, 800);
+
+    } catch (error) {
+      console.error(error);
+
+      alert("❌ Google sign-in failed");
+
+      // ❌ RESET LOADER IF ERROR
+      pageLoader.classList.remove("active");
+      googleBtn.disabled = false;
+    }
+  });
+}
+</script>
+
+    <script src="signin.js"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuelRadar Login</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+
+    <style>
+        
+/* FULLSCREEN LOADER */
+.page-loader {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+/* SHOW LOADER */
+.page-loader.active {
+    display: flex;
+}
+
+/* SPINNER RING */
+.spinner-ring {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 6px solid transparent;
+    border-top: 6px solid orange;
+    border-right: 6px solid #ff8c00;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 20px orange, 0 0 40px rgba(255,165,0,0.6);
+}
+
+/* GLOW PULSE */
+.spinner-ring::after {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,165,0,0.4), transparent);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* LOGO CENTER */
+.loader-logo {
+    width: 60px;
+    height: 60px;
+    z-index: 2;
+    animation: float 2s ease-in-out infinite;
+}
+
+/* ANIMATIONS */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <!-- LEFT IMAGE -->
+        <div class="left">
+            <div class="overlay">
+                <h1>FuelRadar</h1>
+                <p>Welcome back! Continue saving on fuel</p>
+            </div>
+        </div>
+
+        <!-- RIGHT FORM -->
+        <div class="right">
+            <a href="index.html" class="back-home">
+                <i class="ph ph-arrow-left"></i> Back to Home
+            </a>
+
+            <div class="signup-box">
+                <h2>Welcome Back</h2>
+                <p class="subtitle">Login to check fuel prices near you</p>
+
+                <form id="loginForm">
+                    <div class="input">
+                        <i class="ph ph-envelope"></i>
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+
+                    <div class="input password-field">
+                        <i class="ph ph-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                        <i class="ph ph-eye toggle-eye" data-target="loginPassword"></i>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <label class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="forget.html" class="forgot-link">Forgot Password?</a>
+                    </div>
+
+                    <p id="login-error"></p>
+
+                    <!-- <button type="submit" class="signup-btn"></button> -->
+
+                    <button type="submit" class="signup-btn">
+    <span class="btn-text">Login</span>
+    <span class="loader"></span>
+</button>
+
+<div id="pageLoader" class="page-loader">
+    <div class="spinner-ring"></div>
+    <img src="./images/oil.png" class="loader-logo">
+</div>
+                </form>
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+                <div class="social-login">
+                    <button class="social-btn google" id="googleSignIn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M19.8 10.2273C19.8 9.51819 19.7364 8.83637 19.6182 8.18182H10V12.05H15.4818C15.2273 13.3 14.4727 14.3591 13.3545 15.0682V17.5773H16.7182C18.7091 15.7364 19.8 13.2273 19.8 10.2273Z" fill="#4285F4"/>
+                            <path d="M10 20C12.7 20 14.9636 19.1045 16.7182 17.5773L13.3545 15.0682C12.4 15.6682 11.1909 16.0227 10 16.0227C7.39545 16.0227 5.19091 14.1636 4.35909 11.7409H0.890909V14.3318C2.63636 17.7955 6.09091 20 10 20Z" fill="#34A853"/>
+                            <path d="M4.35909 11.7409C4.14091 11.1409 4.01818 10.5 4.01818 9.84091C4.01818 9.18182 4.14091 8.54091 4.35909 7.94091V5.35H0.890909C0.218182 6.69091 -0.154545 8.21818 -0.154545 9.84091C-0.154545 11.4636 0.218182 12.9909 0.890909 14.3318L4.35909 11.7409Z" fill="#FBBC05"/>
+                            <path d="M10 3.65909C11.3182 3.65909 12.5 4.13182 13.4091 5.00455L16.3864 2.02727C14.9591 0.704545 12.6955 -0.154545 10 -0.154545C6.09091 -0.154545 2.63636 2.05 0.890909 5.35L4.35909 7.94091C5.19091 5.51818 7.39545 3.65909 10 3.65909Z" fill="#EA4335"/>
+                        </svg>
+                        Continue with Google
+                    </button>
+                </div>
+
+                <p class="login-link">
+                    Don't have an account?
+                    <a href="signin.html">Sign Up</a>
+                </p>
+            </div>
+        </div>
+    </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    console.log("FuelRadar Login System Upgraded 🔥");
+
+    const form = document.getElementById("loginForm");
+    const pageLoader = document.getElementById("pageLoader");
+
+    // ================= PASSWORD HASH =================
+    function hashPassword(password) {
+        return btoa(password); // simple base64 encoding
+    }
+
+    // ================= FORM SUBMIT =================
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const emailInput = document.querySelector('input[type="email"]');
+        const passwordInput = document.getElementById("loginPassword");
+        const rememberMe = document.getElementById("rememberMe");
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+
+        const users = JSON.parse(localStorage.getItem("fuelUsers")) || [];
+
+        // ================= VALIDATION =================
+        if (!email || !password) {
+            showMessage("❌ Fill all fields", "error");
+            return;
+        }
+
+        // ================= SHOW LOADER =================
+        pageLoader.classList.add("active");
+
+        setTimeout(() => {
+            // ================= FIND USER =================
+            const user = users.find(u => u.email === email);
+
+            if (!user) {
+                showMessage("❌ Account not found", "error");
+                pageLoader.classList.remove("active");
+                return;
+            }
+
+            // ================= CHECK PASSWORD =================
+            if (user.password !== hashPassword(password)) {
+                showMessage("❌ Incorrect password", "error");
+                pageLoader.classList.remove("active");
+                return;
+            }
+
+            // ================= SUCCESS =================
+            showMessage("🎉 Login successful!", "success");
+
+            // SAVE SESSION
+            localStorage.setItem("loggedIn", "true");
+            localStorage.setItem("currentUser", JSON.stringify(user));
+
+            if (rememberMe.checked) {
+                localStorage.setItem("rememberUser", email);
+            } else {
+                localStorage.removeItem("rememberUser");
+            }
+
+            setTimeout(() => {
+                pageLoader.classList.remove("active");
+                window.location.href = "dashboard.html";
+            }, 1000);
+
+        }, 800); // simulate loading delay
+    });
+
+    // ================= AUTO FILL REMEMBERED USER =================
+    const remembered = localStorage.getItem("rememberUser");
+    if (remembered) {
+        document.querySelector('input[type="email"]').value = remembered;
+        document.getElementById("rememberMe").checked = true;
+    }
+
+    // ================= EYE TOGGLE =================
+    document.querySelectorAll(".toggle-eye").forEach(toggle => {
+        toggle.addEventListener("click", () => {
+            const target = document.getElementById(toggle.dataset.target);
+
+            if (target.type === "password") {
+                target.type = "text";
+                toggle.classList.replace("ph-eye", "ph-eye-slash");
+            } else {
+                target.type = "password";
+                toggle.classList.replace("ph-eye-slash", "ph-eye");
+            }
+        });
+    });
+
+    // ================= MESSAGE =================
+    function showMessage(message, type) {
+        const error = document.getElementById("login-error");
+        error.style.display = "block";
+        error.style.color = type === "success" ? "#10b981" : "#ef4444";
+        error.textContent = message;
+    }
+
+});
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+// CONFIG
+const firebaseConfig = {
+  apiKey: "AIzaSyDnB4QJfhwCXpxW3OVbuZm-eDZ12kRj8LY",
+  authDomain: "fuelradar-71a58.firebaseapp.com",
+  projectId: "fuelradar-71a58",
+  storageBucket: "fuelradar-71a58.firebasestorage.app",
+  messagingSenderId: "916720705981",
+  appId: "1:916720705981:web:5d3f8b9064ebc6c13e72d4"
+};
+
+// INIT
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+const googleBtn = document.getElementById("googleSignIn");
+const pageLoader = document.getElementById("pageLoader");
+
+googleBtn.addEventListener("click", async () => {
+
+    // 🔥 SHOW PREMIUM LOADER
+    pageLoader.classList.add("active");
+
+    try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+
+        const userData = {
+            name: user.displayName,
+            email: user.email,
+            photo: user.photoURL
+        };
+
+        // ✅ SAVE USER (LIKE YOUR SYSTEM)
+        let users = JSON.parse(localStorage.getItem("fuelUsers")) || [];
+
+        if (!users.some(u => u.email === user.email)) {
+            users.push(userData);
+            localStorage.setItem("fuelUsers", JSON.stringify(users));
+        }
+
+        localStorage.setItem("currentUser", JSON.stringify(userData));
+        localStorage.setItem("loggedIn", "true");
+
+        // 🔥 SMOOTH SUCCESS FEEL
+        setTimeout(() => {
+            pageLoader.classList.remove("active");
+            window.location.href = "dashboard.html";
+        }, 1200);
+
+    } catch (error) {
+        console.error(error);
+        pageLoader.classList.remove("active");
+        alert("❌ Google sign-in failed");
+    }
+});
+</script>
+</body>
+</html>

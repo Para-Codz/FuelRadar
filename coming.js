@@ -6,7 +6,7 @@ const msg = document.getElementById("message");
 const countEl = document.getElementById("count");
 
 // Countdown
-const launchDate = new Date("April 10, 2026").getTime();
+const launchDate = new Date("April 20, 2026").getTime();
 setInterval(()=>{
     const now = new Date().getTime();
     const diff = launchDate - now;

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuelRadar Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo-section">
+                <h2 class="logo">
+                    <i class="ph ph-droplet"></i>
+                    FuelRadar Admin
+                </h2>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#overview" class="nav-link active" data-section="overview">
+                    <i class="ph ph-chart-line"></i>
+                    <span>Overview</span>
+                </a>
+                <a href="#users" class="nav-link" data-section="users">
+                    <i class="ph ph-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="#prices" class="nav-link" data-section="prices">
+                    <i class="ph ph-currency-circle-dollar"></i>
+                    <span>Price Updates</span>
+                </a>
+                <a href="#stations" class="nav-link" data-section="stations">
+                    <i class="ph ph-gas-pump"></i>
+                    <span>Stations</span>
+                </a>
+                <a href="#reports" class="nav-link" data-section="reports">
+                    <i class="ph ph-flag"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#analytics" class="nav-link" data-section="analytics">
+                    <i class="ph ph-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#settings" class="nav-link" data-section="settings">
+                    <i class="ph ph-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="ph ph-sign-out"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="ph ph-list"></i>
+                </button>
+                <h1 class="page-title" id="pageTitle">Overview Dashboard</h1>
+                <div class="topbar-actions">
+                    <button class="notification-btn" id="notificationBtn">
+                        <i class="ph ph-bell"></i>
+                        <span class="badge">5</span>
+                    </button>
+                   <div class="admin-profile">
+    <img src="https://images.unsplash.com/photo-1764752510909-f88e2a56ebb8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIweW91bmclMjBkcml2ZXIlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NzM5NDEwOTZ8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Admin">
+    <a href="#" style="text-decoration: none;">
+        <span id="adminName">Admin</span>
+    </a>
+</div>
+                </div>
+            </header>
+
+            <!-- OVERVIEW SECTION -->
+            <section id="overview" class="content-section active">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <i class="ph ph-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <p class="stat-label">Total Users</p>
+                            <h3 class="stat-value" id="totalUsers">12,547</h3>
+                            <span class="stat-change positive">+12.5%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <i class="ph ph-gas-pump"></i>
+                        </div>
+                        <div class="stat-content">
+                            <p class="stat-label">Active Stations</p>
+                            <h3 class="stat-value" id="activeStations">1,834</h3>
+                            <span class="stat-change positive">+8.2%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <i class="ph ph-arrow-up"></i>
+                        </div>
+                        <div class="stat-content">
+                            <p class="stat-label">Price Updates Today</p>
+                            <h3 class="stat-value" id="updatesToday">892</h3>
+                            <span class="stat-change positive">+15.3%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <i class="ph ph-flag"></i>
+                        </div>
+                        <div class="stat-content">
+                            <p class="stat-label">Pending Reports</p>
+                            <h3 class="stat-value" id="pendingReports">23</h3>
+                            <span class="stat-change negative">-5 today</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>User Growth (Last 7 Days)</h3>
+                        <canvas id="userGrowthChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Price Updates Distribution</h3>
+                        <canvas id="priceDistributionChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-card">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list" id="activityList">
+                        <!-- Activities will be inserted here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- USERS SECTION -->
+            <section id="users" class="content-section">
+                <div class="section-header">
+                    <h2>User Management</h2>
+                    <div class="section-actions">
+                        <input type="search" placeholder="Search users..." class="search-input" id="userSearch">
+                        <button class="btn btn-primary">
+                            <i class="ph ph-plus"></i>
+                            Add User
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Updates</th>
+                                <th>Tips Earned</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- Users will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- PRICE UPDATES SECTION -->
+            <section id="prices" class="content-section">
+                <div class="section-header">
+                    <h2>Price Update Moderation</h2>
+                    <div class="section-actions">
+                        <select class="filter-select">
+                            <option value="all">All Updates</option>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="flagged">Flagged</option>
+                        </select>
+                        <button class="btn btn-outline">
+                            <i class="ph ph-download-simple"></i>
+                            Export
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Station</th>
+                                <th>Price</th>
+                                <th>Submitted By</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pricesTableBody">
+                            <!-- Price updates will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- STATIONS SECTION -->
+            <section id="stations" class="content-section">
+                <div class="section-header">
+                    <h2>Station Management</h2>
+                    <div class="section-actions">
+                        <input type="search" placeholder="Search stations..." class="search-input">
+                        <button class="btn btn-primary">
+                            <i class="ph ph-plus"></i>
+                            Add Station
+                        </button>
+                    </div>
+                </div>
+
+                <div class="stations-grid" id="stationsGrid">
+                    <!-- Stations will be inserted here -->
+                </div>
+            </section>
+
+            <!-- REPORTS SECTION -->
+            <section id="reports" class="content-section">
+                <div class="section-header">
+                    <h2>User Reports & Flags</h2>
+                    <div class="section-actions">
+                        <select class="filter-select">
+                            <option value="all">All Reports</option>
+                            <option value="spam">Spam</option>
+                            <option value="abuse">Abuse</option>
+                            <option value="incorrect">Incorrect Price</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="reports-list" id="reportsList">
+                    <!-- Reports will be inserted here -->
+                </div>
+            </section>
+
+            <!-- ANALYTICS SECTION -->
+            <section id="analytics" class="content-section">
+                <div class="section-header">
+                    <h2>Analytics & Insights</h2>
+                    <div class="section-actions">
+                        <select class="filter-select">
+                            <option value="7days">Last 7 Days</option>
+                            <option value="30days">Last 30 Days</option>
+                            <option value="90days">Last 90 Days</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="chart-card full-width">
+                        <h3>Revenue & User Engagement</h3>
+                        <canvas id="engagementChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Top Contributing Cities</h3>
+                        <canvas id="citiesChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Update Types</h3>
+                        <canvas id="updateTypesChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SETTINGS SECTION -->
+            <section id="settings" class="content-section">
+                <div class="section-header">
+                    <h2>System Settings</h2>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3>General Settings</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label>Platform Name</label>
+                                <input type="text" value="FuelRadar" class="setting-input">
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label>Support Email</label>
+                                <input type="email" value="support@fuelradar.ng" class="setting-input">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary">Save Changes</button>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Price Validation</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label>Auto-approve updates</label>
+                                <p class="setting-desc">Automatically approve price updates from verified users</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label>Price deviation alert</label>
+                                <p class="setting-desc">Alert when price differs by more than ₦50</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>User Permissions</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label>Allow anonymous updates</label>
+                                <p class="setting-desc">Let users share prices without creating an account</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Modal for User Details -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>User Details</h3>
+                <button class="modal-close" id="closeUserModal">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="userModalBody">
+                <!-- User details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Logout Confirmation Modal -->
+<div id="logoutModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Confirm Logout</h3>
+      <button class="modal-close" id="closeLogoutModal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to logout?</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" id="cancelLogout">Cancel</button>
+      <button class="btn btn-danger" id="confirmLogout">Logout</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Loader -->
+<div id="loader" class="page-loader">
+    <div class="loader-content">
+        <div class="spinner-ring"></div>
+        <img src="./images/oil.png" class="loader-logo">
+        <p class="loader-text">Logging you out...</p>
+    </div>
+</div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
