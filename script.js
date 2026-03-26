@@ -287,7 +287,7 @@ document.querySelectorAll('.app-download-btn').forEach(btn => {
         e.preventDefault();
         const platform = this.textContent.includes('Android') ? 'Android' : 'iOS';
         // showNotification(`📱 Redirecting to ${platform} app store...`, 'success');   
-        showNotification(`📱 coming sonn `, 'success');
+        showNotification(`📱 coming soon `, 'success');
         
         // In real app:
         // if (platform === 'Android') {
